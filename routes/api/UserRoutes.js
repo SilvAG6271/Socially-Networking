@@ -56,7 +56,7 @@ router.delete('/:id', async (req, res) => {
 router.post('/:userId/friends/:friendId', async (req, res) => {
     try {
         const {userId, friendId} = req.params;
-        const user = await findById(userId);
+        const user = await User.findById(userId);
 
         if (!user) {
             return res.status(404).json({error: 'User not found'});
@@ -75,7 +75,7 @@ router.post('/:userId/friends/:friendId', async (req, res) => {
 router.delete('/:userId/friends/:friendId', async (req, res) => {
     try {
         const {userId, friendId} = req.params;
-        const user = await findById(userId);
+        const user = await User.findById(userId);
 
         if (!user) {
             return res.status(404).json({error: 'User not found'});

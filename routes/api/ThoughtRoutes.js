@@ -25,8 +25,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-
-        const postThought = await Thought.create(thoughtData);
+        
+        const postThought = await Thought.create(req.body);
         console.log('New Thought created:', postThought);
         res.json(postThought);
     } catch (err) {
@@ -92,14 +92,14 @@ router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
         const {thoughtId, reactionId } = req.params;
         
         //find thought and update it by deleting reaction
-        const updatedThought = await Thought.findOneAndUpdate(
+        const deletedReaction = await Thought.findOneAndUpdate(
             {_id: thoughtId},
             {$pull: {reactions: {_id: reactionId}}},
             {new: true},
             );
 
         //error message if no id does not exist
-        if (!updatedThought) {
+        if (!deletedReaction) {
             return res.status(404).json({error: 'Thought not found'});
         }
         //message if request was successful
