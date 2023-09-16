@@ -1,3 +1,4 @@
+//function to format timestamp
 function formatTimeStamp(timestamp) {
     const formattedDate = 
     `${timestamp.getFullYear()}-${(timestamp.getMonth() + 1)

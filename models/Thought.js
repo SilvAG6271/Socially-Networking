@@ -1,6 +1,7 @@
+//importing mongoose and the helper file
 const { Schema, model, Types } = require('mongoose');
 const {formatTimeStamp} = require('../public/utils/helper')
-
+//creating Reactions subdocument
 const reactionSchema = new Schema(
     {
 reactionId:  
@@ -29,7 +30,7 @@ createdAt: {
     });
 
 
-
+//setting up Thought model/schema
 const thoughtSchema = new Schema(
     {
 thoughtText: {
@@ -48,6 +49,7 @@ username: {
     required: true,
     trim: true,
 },
+//including the reactions schema in the Thought model
 reactions: [reactionSchema]
 
 },

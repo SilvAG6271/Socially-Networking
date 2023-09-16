@@ -21,10 +21,10 @@ Please install node.js
   
 ## Usage 
 This app shows the backend workings of a social networking platform that will help people connect and express their thoughts as well as give their reactions to other people's thoughts.
-![picture of terminal questions and index.js ](media/LogoIndex.png)
-![picture of jest test for Shape ](media/ShapeTest.png)
-![picture of Shape.js ](media/Shape.png)
-![](media\LogoBuildUpdated.gif)
+![picture the Put route for Thought ](media/UpdateThought.png)
+![picture of Get all route for users](media/GetRouteUsersSocialN.png)
+![picture of Post route for Thought ](media/SociallyNetworkingPostThought.png)
+![](media/SociallyNetworking.gif)
 
 
 

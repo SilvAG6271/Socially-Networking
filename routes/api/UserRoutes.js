@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 
-
+//get all users
 router.get('/', async (req, res) => {
     try {
         const userData = await User.find();
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+//update single user by id
 router.get('/:id', async (req, res) => {
     try {
         const singleUser = await User.findOne({_id: req.params.id});
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+//post new user
 router.post('/', async (req, res) => {
     try {
         const postUser = await User.create(req.body);
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
+//update user by id
 router.put('/:id', async (req, res) => {
     try {
         const updateUser = await User.findOneAndUpdate({_id: req.params.id}, req.body, {
@@ -43,7 +43,7 @@ router.put('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 });
-
+//delete single user by id
 router.delete('/:id', async (req, res) => {
     try {
         const deleteUser = await User.findOneAndDelete({_id: req.params.id})
@@ -52,7 +52,7 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 });
-
+//post new friend to user by id
 router.post('/:userId/friends/:friendId', async (req, res) => {
     try {
         const {userId, friendId} = req.params;
@@ -71,7 +71,7 @@ router.post('/:userId/friends/:friendId', async (req, res) => {
         res.status(500).json({error: 'Internal Server Error', message: err.message});
     }
 });
-
+//delete friend from user by id
 router.delete('/:userId/friends/:friendId', async (req, res) => {
     try {
         const {userId, friendId} = req.params;

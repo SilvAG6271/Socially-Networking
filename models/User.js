@@ -1,6 +1,7 @@
+//importing mongoose
 const { Schema, model } = require('mongoose');
-const Thought = require('./Thought');
 
+// creating model/schema for User
 const userSchema = new Schema(
     {
 username: {
